@@ -7,6 +7,20 @@
     <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <!-- 뷰JS를 사용하기 위해서는 CDN방식으로 먼저 스탠드얼론 버전을 불러와야함 -->
+    <style>
+      ol,ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;  
+      }
+      li{
+        text-indent: 10px;
+      }
+      h1,h2,h3,h4,h5,h6{
+        padding: 0;
+        margin: 0;
+      }
+    </style>
     <script>
       //로딩구역
       window.addEventListener("DOMContentLoaded", () => {
@@ -63,9 +77,82 @@
                 코드 : 'addias205',
                 가격 : '219,000원',
               },
-            ],
-          },
+            ], // goods
+          }, // data
         }); //// #app2 Vue
+
+        // 3. 이벤트 사용하기 //
+        new Vue({
+          // 대상선정
+          el: '#app3',
+          data: {
+            buttonText: ['다시눌러봐','또눌러봐','더눌러봐'],
+          },
+          methods: {
+            // 클릭 시 함수
+            myClick :  function(e){
+              // 버튼 자신
+              // console.log('뭐가버튼자신?',
+              // e.target,
+              // e.currentTarget
+              // );
+              // this는 뷰 인스턴스 자신
+              // 버튼 자신은 e.target ? e.currentTarget ?
+              // event.target 이벤트 발생한 근본요소(버블링의 초기지점)
+              // event.currentTarget 현재 이벤트가 발생한 요소(버블링 된 지점)
+
+              // 1) 버튼글자 바꾸기
+              e.target.innerText = this.buttonText[Math.floor(Math.random()*3)];
+
+              // 2) 잠시 후 해당요소(Root)아래에 새로운 html넣기
+              setTimeout(()=>{
+                // console.log('2초후:',this);
+                // 콘솔에 찍힌 this를 보면 #el에 인스턴스대상요소가 담겨있다.
+                this.$el.innerHTML += `<div>하하하</div>`;
+                // document.querySelector('#app3').innerHTML += `<div>하하하</div>`;
+              },2000);
+            },// myClick
+            // 함수할당속성 원형 : function(){}
+            // 축약형 : 함수명(){}
+            // myOver:()=>{
+            // myOver:function(){
+            myOver(){
+              // 현재 이벤트 대상찍기
+              let currentEventObject = event.target;
+              console.log(this); // vue인스턴스 자신이 나옴
+              // 1. 버튼 글자 변경하기
+              currentEventObject.innerText = '오버하지마';
+              setTimeout(()=>{
+                // 2. 2초 후에 글자 다시 변경하기
+                currentEventObject.innerText = '클릭해봐';
+              },2000);
+            }, // myOver
+            overClick(txt){
+              console.log(txt,'오버클릭');
+              // 기존 인스턴스 루트요소에 html 넣기
+              this.$el.innerHTML += `<h1>내가 ${txt}야</h1>`;
+            }, // overClick
+          },
+        }); /// #app3 Vue
+        
+        // 4. 입력 양식과 동기화 //
+        new Vue({
+          el: '#app4',
+          // 변수 세팅
+          data: {
+            msg: '여기에 입력해보세요~~',
+          },
+        }); // #app4
+
+        // 5. 조건분기 // 
+        new Vue({
+          el: '#app5',
+          data:{
+            show: false,
+            // show변수에 false를 담고 이것을 v-if조건문 디렉티브에 담고 사용하면
+            // true이면 출력하고 false이면 아예 지운다
+          }
+        }); // #app5
       }); //////// 로딩구역 //
     </script>
   </head>
@@ -78,7 +165,7 @@
     <!-- 뷰 인스턴스 생성 대상이 되는 순간 html태그는 일반 html태그가 아닌 뷰가 변환하는 대상으로 뷰 문법으로 적용함 -->
     <div id="app1">
       <p>{{message}}</p>
-      <p> 나는{{yo}} 뷰JS를{{yo}} 잘 쓰는{{yo}} 프론트엔드{{yo}} 개발자다.{{yo}} </p>
+      <p> 나는{{yo}} 뷰JS를{{yo}} 쓰는{{yo}} 프론트엔드{{yo}} 개발자다.{{yo}} </p>
       <!-- 
             {{}} 중복중괄호는 콧수염 표시자(Mustasch)
             이 부분에 뷰JS 데이터를 넣는 자리다!
@@ -95,10 +182,10 @@
             [ 뷰JS 인스턴스 내부의 요소 속성만들기 ]
             v- 로 시작하는 속성명을 디렉티브 라고 한다!
             예)
-            v-on:이벤트명 = "함수"
+            v-on:이벤트명 = "함수" || 축약형 : @이벤트명 = "함수"
             v-bind:value = "값"
             v-if="코드"
-
+            v-for:
           -->
     </div>
 
@@ -106,22 +193,100 @@
 
     <h2>2. 반복 렌더링</h2>
     <div id="app2">
+      <!-- 단순 배열 데이터 출력 -->
+      <ol>
+        <li v-for="배우명 in list">{{배우명}}</li>        
+      </ol>
+      <!-- 배열안에 반복되는 객체 데이터 찍기 -->
+      <div v-for="(item,idx) in goods">
+        <h4>
+          아이템번호: {{idx+1}}
+        </h4>
+        <ul>
+          <!-- 바깥쪽 for문에서 item으로 담긴 객체값을 순회하여 찍음 -->
+          <li v-for="(val,name) in item">
+           {{name+": "+val}}
+          </li>
+        </ul>
+      </div>
+      <!-- 
+            [v-for 디렉티브]
+            는 뷰JS에서 사용하는 반복구분이다!
+            반복할 요소에 직접 속성형식으로 사용함
 
+            1. 값구성: 변수 in 데이터변수
+            -> 변수는 내가지은이름, in 뒤의 데이터변수는
+            뷰인스턴스의 data속성에 셋팅된 변수!
+            셋팅된변수가 배열/객체 이다!
+
+            2. 해석 : list 에 할당된 개수만큼 돌아서
+            하나씩 변수에 넣을때 머스테쉬가 있는 요소를
+            반복하여 DOM에 반영한다!
+
+            3. 배열일 경우 전달값 2개
+            -> (하나,둘) in 배열
+            ->> 하나 - 배열값, 둘 - 순번
+            ->>> (배열값,순번) in 데이터변수
+
+            4. 객체일 경우 전달값 2개
+            -> (하나,둘) in 객체
+            ->> 하나 - 객체값, 둘 - 속성명
+            ->>> (객체값(property),객체속성명(key)) in 데이터변수
+
+            ->>> 배열이든 객체든 반복시 값만 쓸 경우에는
+            전달변수를 하나만써도 무방함! 왜? 첫번째 전달변수가
+            배열값/객체값 이기 때문이다!!!
+         -->
     </div>
 
     <hr />
 
     <h2>3. 이벤트 사용하기</h2>
-    <div id="app3"></div>
+    <div id="app3">
+      <!-- <button v-on:click="myClick">눌러봐</button> -->
+      <button @click="myClick">눌러봐</button>
+      <!-- 
+        v-on:이벤트명='값'
+        축약형
+        @이벤트명='값'
+       -->
+      <button 
+        @mouseover="myOver"
+        @click="overClick('후계자')">마우스오버해봐</button>
+       <!-- 함수 호출 시 바로실행되지 않고 이벤트가 발생 시 실행 됨 -->
+    </div>
 
     <hr />
 
     <h2>4. 입력 양식과 동기화하기</h2>
-    <div id="app4"></div>
+    <div id="app4">
+      <input type="text" v-model="msg" />
+      <!-- 
+        v-model 디렉티브 속성은 요소 자신의 값이 타겟값으로 반영되게 해준다!
+        변경 데이터의 뷰JS의 동기화 기능을 확인!!
+       -->
+       <p>{{msg}}</p>
+    </div>
 
     <hr />
 
     <h2>5. 조건분기</h2>
-    <div id="app5"></div>
+    <div id="app5">
+      <button @click='show=!show'>뒤집어{{show}}</button>
+      <!--
+        'show=!show'
+        show 값이 true이면 false를 넣고 false이면 다시 true를 다시 할당하도록 하는 명령어
+       -->
+      <p>
+        나는 사실 초보 개발자가
+        <span v-if="show"> 아니다.</span>
+        <span v-if="!show"> 맞다.</span>
+        <!-- 
+          [ v-if 조건문 디렉티브 ]
+          쓴 조건에 따라 해당요소가 화면에 출력될 지 말지를 결정할 수 있다!
+          (결과적으로 가상돔에 출력을 안하면 실제돔에 출력되지 않는다.)
+        -->
+      </p>
+    </div>
   </body>
 </html>
