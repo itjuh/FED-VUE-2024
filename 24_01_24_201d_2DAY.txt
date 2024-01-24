@@ -12,3 +12,6 @@
 
 리액트 <img src={} alt='dress' /> 
 뷰JS <img v-bind:src='' alt="dress" />
+
+뷰JS는 부모자식관계가 껍데기를 만들어준 애가 부모임
+ex) <list-comp></list-comp>
