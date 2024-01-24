@@ -59,6 +59,7 @@ const vm = new Vue({
         ],
         */
     ],
+    overItemData:[],
   }, // data
 
   // 3. 메서드 설정
@@ -67,7 +68,8 @@ const vm = new Vue({
     makeImg(val) {
       // val은 이미지 경로명
       return `
-            <img src='./images/${val}.jpg' alt='item'>
+            <img src='./images/fashion1/${val}.jpg' alt='item'>
+            <img src='./images/fashion2/${val}.png' alt='item'>
             `;
     },
     // 정규식 함수(숫자 세자리마다 콤마해주는 기능)
@@ -78,7 +80,7 @@ const vm = new Vue({
 
   // [ 뷰 인스턴스 초기화 완료단계 : created ]
   // 이미 뷰 인스턴스는 생성 된 후 데이터를 셋업하기
-  // 적격인 단계가 바로 created 단계임
+  // 적격인 단계가 바로 created 단계임 
   // created:function(){코드}
   created: function () {
     // 상품데이터 클래스를 호출하여 객체를 생성하자!
@@ -98,7 +100,7 @@ const vm = new Vue({
         new GetList(
           i,
           goods[randomGoodsNum] + i,
-          `fashion1/nanda_${i}`,
+          `nanda_${i}`,
           randomPriceNum + "0000",
         )
       );
@@ -127,8 +129,8 @@ const vm = new Vue({
         // 3. 스크롤 자동 이동(배너의 offsetTop값 + 높이값 만큼 위치이동)
         const ban = $('.banner');
         
-        console.log((ban.position().top));
-        console.log((ban.height()));
+        // console.log((ban.position().top));
+        // console.log((ban.height()));
         
         $('html, body')
         .animate({
