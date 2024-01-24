@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>01. 컴포넌트 연습</title>
+    <title>02. 컴포넌트 연습 - 데이터전달</title>
     <!-- css -->
-    <link rel="stylesheet" href="./css/comp1.css" />
+    <link rel="stylesheet" href="./css/comp2.css" />
     <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <!-- 제이쿼리 라이브러리 CDN -->
@@ -14,7 +14,7 @@
     <!-- 제이쿼리 UI CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <!-- js -->
-    <script src="./js/comp1.js" defer></script>
+    <script src="./js/comp2.js" defer></script>
   </head>
   <body>
     <!-- 1. 타이틀 -->
@@ -23,10 +23,14 @@
       <tit-comp></tit-comp>
     </h1>
     <!-- 유튜브 동영상 박스 -->
-    <div class="iframe-box">
+    <div class="iframe-box"> 
         <!-- 아이프레임 컴포넌트 : 부모컴포넌트 -->
-        <ifr-comp></ifr-comp> 
-        <ifr-comp></ifr-comp> 
+        <ifr-comp
+          v-bind:data-link="'ZH1Y1l1OmTY'"></ifr-comp> 
+        <!-- ↑ 부모 컴포넌트 -->
+        <ifr-comp
+          v-bind:data-link="'Whj5j3RQmFc'"></ifr-comp> 
+          <!-- 주의!!!! 문자값은 한 번 더 감싸준다!!! -->
     </div>
     <!-- 2. 그리드 레이아웃 상품박스 -->
     <div class="grid">
@@ -36,7 +40,25 @@
         단순 반복은 n in 숫자 를 쓰면 됨
         v-for="(일련번호,순번) in 반복수"
      -->
-      <list-comp v-for="(n,i) in 50" v-bind:data-num="n" v-bind:data-seq="i"></list-comp>
+      <list-comp 
+        v-for="(n,i) in 50" 
+        v-bind:data-num="n"
+        v-bind:key="n"  
+        v-bind:end-let="'WT'"
+        v-on:hull="goMsg"
+        v-on:got-kimchi="overMsg"
+      ></list-comp>
+      <!-- 
+        [ v-bind:key ]
+        for문으로 반복하여 요소를 생성할 때 
+        내부적으로 요소를 구분하는 유일키를 설정할 때 사용한다.
+        주의** key값을 props하지 말것!
+        ->> 용도가 다르므로 에러가 발생함
+      -->
+      <!--
+        v-bind:속성명="값"에서 ""는 뷰JS코드구역(변수구역)임
+        만약 문자값을 전달하고 싶으면 "'문자'"로 이중구조가 필요함
+       -->
     </div>
     <!-- 3. 하단정보 -->
     <div class="tit2">

@@ -12,6 +12,30 @@
 
 리액트 <img src={} alt='dress' /> 
 뷰JS <img v-bind:src='' alt="dress" />
+리액트나 함수에서는 이벤트 실행될때 onClick={함수명()} 쓰면 바로 실행되서
+onClick={()=>{함수명()}} 으로 실행했으나
+뷰JS는 v-on:click='함수명()'으로 작성해도 바로 실행되지 않는다.
 
 뷰JS는 부모자식관계가 껍데기를 만들어준 애가 부모임
-ex) <list-comp></list-comp>
+ex) <list-comp></list-comp> new Vue <<<부모컴포넌트임 : 인스턴스를 만들어주는 공간
+Vue.component() <<<얘가 자식컴포넌트임
+
+v-
+뷰JS 디렉티브!!
+
+data-num을 뒷단에서 쓰고 싶으면 props 값 전달!!하면 됨
+
+자식컴포넌트는 실제로 있는 이벤트만 사용 가능함
+부모는 자식의 methods를 연결 할 수 있음(v-on:으로 이벤트명이 이상해도 가능함)
+
+
+1. 이벤트 전달 법
+1) 부모컴포넌트에 새로운 이름의 이벤트를 만든다.
+v-on:이벤트명='동작메서드'
+2) new Vue 부모컴포넌트에 methods로 동작메서드에 실행할 코드를 구현한다.
+3) 자식컴포넌트에 methods에 function창으로 부모를 호출하는 코드를 구현한다.
+callPapa(){
+this.$emit('부모이벤트명');
+}
+4) 자식컴포넌트의 template속성에 실제 이벤트와 부모호출 메서드를 연결한다.
+v-on:click='callPapa'
