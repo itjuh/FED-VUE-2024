@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>더 진한</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- 제이쿼리 라이브러리 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- 제이쿼리 UI CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <!-- js -->
+    <script src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div id="header">
+        <!-- 메뉴 -->
+        <!-- 상단 메뉴 1200 높이 80, 색상 #4b4036 -->
+        <div class="nav">
+          <ul class="inbox">
+          <!-- 로고 -->
+           <logo-comp></logo-comp>
+           <nav-comp v-for="n in 5"></nav-comp>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="main">
+        <!-- 배너 100vw 1000-->
+        <!-- 베스트상품 tit 200 cont 1200 560-->
+        <!-- 회사소개링크/제휴문의링크 300 -->
+        <!-- 레시피 tit 200 cont 1200 424 button 151 56 -->
+        <!-- 홍보글 1050-->
+      </div>
+    </main>
+    <footer>
+      <div id="footer">
+        <!-- 하단 143-->
+      </div>
+    </footer>
+  </body>
+</html>
