@@ -19,7 +19,9 @@
   font-weight: normal;
   font-style: normal;
 }
-
+html {
+  font-size: 14px;
+}
 .inbox {
   max-width: 1200px;
   margin: 0 auto;
@@ -39,12 +41,15 @@
 }
 .nav li {
   cursor: pointer;
+  font-size: 1.2rem;
 }
+/* 상단메뉴 밑줄 */
 .nav li::after {
   content: "";
   display: block;
   width: 0%;
   margin-left: 100%;
+  margin-top: 3px;
   height: 2px;
   background-color: #fff;
   transition: 0.4s;
@@ -53,4 +58,99 @@
   width: 100%;
   margin-left: 0%;
   transition: width 0.4s;
+}
+/* 상단 검색창 */
+.nav .sch-box {
+  position: relative;
+}
+.nav input {
+  background-color: transparent;
+  caret-color: #fff;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  font-size: 1.2rem;
+  max-width: 150px;
+  color: #fff;
+}
+/* 검색버튼 */
+.nav button {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+/* 상단 모바일 버튼 */
+.nav ul > div:last-child {
+  position: relative;
+  /* display: none; */
+}
+/* 모바일버튼 세팅 */
+.moblie-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.moblie-btn > div {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.5s ease-in-out;
+}
+.moblie-btn div:nth-child(2) {
+  transform: translateY(7px);
+}
+.moblie-btn div:nth-child(3) {
+  transform: translateY(14px);
+}
+/* 모바일 모드 버튼 클릭 시 */
+nav.on .moblie-btn > div:nth-child(2) {
+  transform: translateX(7px) translateY(7px);
+  width: 0;
+}
+nav.on .moblie-btn > div:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+nav.on .moblie-btn > div:nth-child(3) {
+  transform: translateY(7px) rotate(-45deg);
+}
+/* 상단 메뉴 겸 사이드 메뉴 */
+nav ol {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: min(1vw, 20px);
+}
+nav.on ol {
+  right: 0;
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width: 800px) {
+  .inbox {
+   padding: 0 10px;
+   box-sizing: border-box;
+  }
+  /* 상단메뉴 */
+  .nav ul {
+    gap: 10px;
+  }
+  /* 메뉴 숨기기 */
+  .nav li {
+    display: none;
+  }
+  /* 상단 검색창 */
+  .nav .sch-box {
+    margin-left: auto;
+  }
 }
