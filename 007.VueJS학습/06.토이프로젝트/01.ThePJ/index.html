@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>더 진한</title>
+    <title>더진한</title>
     <!-- 폰트어썸 아이콘 -->
     <!-- 아이콘 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <!-- css -->
     <link rel="stylesheet" href="./css/main.css" />
     <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
@@ -16,7 +16,7 @@
     <!-- 제이쿼리 UI CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <!-- js -->
-    <script src="./js/main.js" defer></script>
+    <script src="./js/main.js" type="module"></script>
   </head>
   <body>
     <header>
@@ -25,14 +25,16 @@
         <!-- 상단 메뉴 1200 높이 80, 색상 #4b4036 -->
         <nav class="nav">
           <ul class="inbox">
-          <!-- 로고 -->
-           <logo-comp></logo-comp>
-          <!-- 메뉴 -->
-           <nav-comp v-for="n in 5"></nav-comp>
-          <!-- 검색창 -->
-           <sch-comp></sch-comp>
-          <!-- 햄버거버튼 -->
-           <side-comp></side-comp>
+            <!-- 로고 -->
+            <logo-comp></logo-comp>
+            <!-- 메뉴 -->
+            <nav-comp 
+              v-for="n in 5"
+              v-bind:key="n"></nav-comp>
+            <!-- 검색창 -->
+            <sch-comp></sch-comp>
+            <!-- 햄버거버튼 -->
+            <side-comp></side-comp>
           </ul>
         </nav>
       </div>
@@ -40,15 +42,22 @@
     <main>
       <div id="main">
         <!-- 배너 100vw 1000-->
+          <banner-comp></banner-comp>
         <!-- 베스트상품 tit 200 cont 1200 560-->
+        <div class="best-box"></div>
         <!-- 회사소개링크/제휴문의링크 300 -->
+        <div class="link-box"></div>
         <!-- 레시피 tit 200 cont 1200 424 button 151 56 -->
+        <div class="recipe-box"></div>
         <!-- 홍보글 1050-->
+        <div class="etc-box"></div>
+
       </div>
     </main>
     <footer>
       <div id="footer">
         <!-- 하단 143-->
+        <footer-comp></footer-comp>
       </div>
     </footer>
   </body>

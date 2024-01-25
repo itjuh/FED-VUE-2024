@@ -1,4 +1,5 @@
 // 더진한 PJ 메인 js
+import { banData } from "./bannerData.js";
 
 // 뷰 인스턴스 생성 메서드
 const makeVue = (x) => new Vue({ el: x });
@@ -22,7 +23,6 @@ Vue.component("nav-comp", {
     },
   },
 }); // 메뉴 컴포넌트
-makeVue(".nav ul");
 
 // 뷰 로고 컴포넌트
 Vue.component("logo-comp", {
@@ -35,7 +35,6 @@ Vue.component("logo-comp", {
     };
   },
 }); // 로고 컴포넌트
-makeVue(".nav ul");
 
 // 뷰 검색창 컴포넌트
 Vue.component("sch-comp", {
@@ -44,10 +43,9 @@ Vue.component("sch-comp", {
     <input type="text" name="sch" id="sch-box" maxlength="10">
     </input>
     <button><i class="fa-solid fa-magnifying-glass"></i></button>
-    <div>
+    </div>
     `,
 }); // 검색창 컴포넌트
-makeVue(".nav ul");
 
 // 뷰 햄버거버튼 컴포넌트
 Vue.component("side-comp", {
@@ -60,5 +58,87 @@ Vue.component("side-comp", {
         </a>
     </div>
     `,
-});
+}); // 햄버거버튼 컴포넌트
+// 뷰 인스턴스 생성
 makeVue(".nav ul");
+
+// 하단 구현 컴포넌트
+Vue.component("footer-comp",{
+  template:`
+  <div class="footer-info inbox">
+    <!-- 고객센터 / 배송정보 -->
+    <div class="info-top">
+      <dl>
+        <dt class='info-title'>고객센터</dt>
+        <dd>02-853-8176</dd>
+        <dd>
+          <span>평일 09:00 - 18:00</span>
+          <span>점심 11:30 - 12:30</span>
+          <span>(주말/공휴일 휴무)</span>
+        </dd>
+      </dl>
+      <dl>
+        <dt class='info-title'>배송정보</dt>
+        <dd>배송조회 롯데 택배</dd>
+      </dl>
+    </div>
+    <div class="info-bottom">
+      <!-- 회사정보 -->
+      <div class="co-info">
+        <ul>
+          <li>그린푸드메이커 대표 : 허정규</li>
+          <li>주소 : 경기도 안양시 만안구 일직로 94번길 3, 신화타워 8층</li>
+          <li>D.C : 강원도 횡성군 우천면 전재로 160</li>
+          <li>전화 : 02-853-8176</li>
+          <li>팩스 : 031-441-2203</li>
+          <li>사업자등록번호 : 381-86-01902</li>
+          <li>통신판매신고번호 : 제 2020-강원횡성-103호</li>
+          <!-- 권한정보 -->
+          <span>
+          Copyright © 더진한 All rights reserved.
+          </span>
+        </ul>
+        <!-- 로고 -->
+          <div class="footer-logo">
+            <!-- 로고컴포넌트 -->
+            <logo-comp></logo-comp>
+          </div>
+      </div>
+    </div>
+ </div>
+  `,
+}); // 하단 컴포넌트
+// 뷰 인스턴스 생성
+makeVue('#footer');
+
+const bannerMap = x =>{
+  return x.map(v=>`
+    <div>
+      <!-- 배너 이미지 전체박스 -->
+      <figure>
+        <img src=${v['isrc']} alt='배너이미지1'>
+      </figure>
+      <!-- 배너 이미지 설명 -->
+      <figcaption>
+        <ul class='inbox'>
+          <li class='tag'>${v['tag']}</li>
+          <li class='bold-tit'>${v['bold-tit']}</li>
+          <li class='light-tit'>${v['light-tit']}</li>
+          <li class='i-tit'>${v['i-tit']}</li>
+          <li class='detail'>${v['detail']}</li>
+          ${v['view-btn']!==""?'<button class="view-btn">'+v['view-btn']+'</button>':''}
+        </ul>
+      </figcaption>
+    </div>
+  `).join('');
+}; // bannerMap
+console.log(bannerMap(banData));
+
+// 메인 배너 컴포넌트
+Vue.component('banner-comp',{
+  template: `<div class="banner-box">
+  ${bannerMap(banData)}
+  </div>`,
+});
+
+makeVue('main');

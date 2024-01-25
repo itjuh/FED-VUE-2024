@@ -2,3 +2,81 @@
 /* 더진한 PJ main.css */
 @import url(./reset.css);
 @import url(./common.css);
+
+/****** 메인영역  */
+
+/* 배너 컴포넌트 */
+.banner-box{
+    width: 100vw;
+    height: 900px;
+    display: flex;
+}
+.banner-box>div{
+    flex-shrink: 0;
+}
+/* 배너 이미지 */
+.banner-box figure{
+    height: 900px;
+}
+.banner-box img{
+    height: 100%;
+    object-fit: fill;
+}
+/* 배너 설명 */
+.banner-box figcaption{
+    position: absolute;
+    top: 250px;
+    width: 100%;
+}
+/* 상단 태그 */
+.tag{
+    font-size: 1.4em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+/* 가는 타이틀 */
+.light-tit{
+    font-size: 5.8em;
+    font-family: 'GmarketSans';
+    font-weight: 300;
+    font-style: normal;
+}
+/* 굵은 타이틀 */
+.bold-tit{
+    font-size: 5.8em;
+    font-family: 'GmarketSans';
+    font-weight: bold;
+    margin-top: 30px;
+    letter-spacing: -4px;
+}
+/* 이탤릭 설명 */
+.i-tit{
+    font-size: 5.8em;
+    font-family: 'Roustel', sans-serif;
+    margin-top: -50px;
+    color: coral;
+}
+/* 디테일 설명 */
+.detail{
+    font-family: "Pretendard";
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 60px;
+    line-height: 1.4;
+    font-weight: 300;
+}
+/* 링크 버튼 */
+.view-btn{
+    display: block;
+    font-family: "Pretendard";
+    width: 200px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    background: #ef8514;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 300;
+    cursor: pointer;
+}
