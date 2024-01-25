@@ -1,0 +1,12 @@
+[ 보충수업 - 오늘의 일정 : 1월 25일(목) ]
+------------------------------
+- 뷰JS 기초연습
+1. 쇼핑몰로 변수전달방법 연습하기
+2. 뷰JS - 스토어(Store) : 전역메모리 관리법
+
+
+
+가격 숫자형으로 전환 -> 문자열.replace(바꿀놈,바뀔놈)
+
+let currPrice = $(this).find('h3>span:last-child').html();
+let currName = $('h2',this).html();
