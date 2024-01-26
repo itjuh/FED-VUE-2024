@@ -4,17 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>더진한</title>
+    <!--파비콘추가-->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="http://www.thejinhan.com/theme/cookie/img/favicon/favicon-16x16.png"
+    />
+    <meta name="msapplication-TileColor" content="#4b4036" />
+    <meta name="theme-color" content="#ffffff" />
+    <!--파비콘END-->
     <!-- 폰트어썸 아이콘 -->
     <!-- 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <!-- css -->
     <link rel="stylesheet" href="./css/main.css" />
+    <!-- 스와이퍼 css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <!-- 제이쿼리 라이브러리 CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!-- 제이쿼리 UI CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- js -->
     <script src="./js/main.js" type="module"></script>
   </head>
@@ -28,9 +42,7 @@
             <!-- 로고 -->
             <logo-comp></logo-comp>
             <!-- 메뉴 -->
-            <nav-comp 
-              v-for="n in 5"
-              v-bind:key="n"></nav-comp>
+            <nav-comp v-for="n in 5" v-bind:key="n"></nav-comp>
             <!-- 검색창 -->
             <sch-comp></sch-comp>
             <!-- 햄버거버튼 -->
@@ -42,7 +54,7 @@
     <main>
       <div id="main">
         <!-- 배너 100vw 1000-->
-          <banner-comp></banner-comp>
+        <banner-comp></banner-comp>
         <!-- 베스트상품 tit 200 cont 1200 560-->
         <div class="best-box"></div>
         <!-- 회사소개링크/제휴문의링크 300 -->
@@ -51,7 +63,6 @@
         <div class="recipe-box"></div>
         <!-- 홍보글 1050-->
         <div class="etc-box"></div>
-
       </div>
     </main>
     <footer>

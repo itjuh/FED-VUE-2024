@@ -10,3 +10,6 @@
 
 let currPrice = $(this).find('h3>span:last-child').html();
 let currName = $('h2',this).html();
+
+액션스에서 데이터를 받고나서 
+뮤테이션스에서 구현 된 동작을 수행함

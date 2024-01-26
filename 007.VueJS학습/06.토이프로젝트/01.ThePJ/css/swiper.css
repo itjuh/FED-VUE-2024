@@ -1,0 +1,18 @@
+/* banner-box */
+.swiper { 
+    width: 100%;
+    height: 100%;
+}
+/* 스와이퍼 슬라이드 */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 스와이퍼 이미지 */
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

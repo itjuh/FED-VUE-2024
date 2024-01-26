@@ -157,6 +157,7 @@ nav.on ol {
 /***************** 메인 */
 #main{
   min-height: 600px;
+  position: relative;
 }
 /***************** 하단 */
 #footer{

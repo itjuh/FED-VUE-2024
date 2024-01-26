@@ -1,0 +1,42 @@
+[ 오늘의 일정 : 1월 26일(금) ]
+------------------------------
+1. 뷰JS 라우터 적용 연습
+2. CLI 개발환경 개발 연습
+
+useState과 같은 비슷한 성격이 vuex store임
+
+뷰 라우터
+
+1. 기본 라우터 연습
+2. CLI라우터 연습
+
+해쉬라우터 브라우저처럼 #표시를 기본으로 함! #부터 앞에 주소는 끊어짐!!!!
+react 에서 outlet 영역이 vue에서 <router-view>영역임
+
+
+라우터 연습하기
+
+[ html 라우터 구성하기 ]
+1) html에 라우터 링크경로 컴포넌트 만들기
+<router-link to='주소경로'></router-link>       
+    
+    ** a태그 형태로 보여짐
+    ** a요소가 아닌 다른 요소로 쓰고싶다면 tag속성으로 변경 가능하다
+    <router-link to='주소경로' tag='button'>
+2) html에 라우터 경로에서 불러들일 구역 만들기!
+<router-view></router-view>                  <<여기에 보여짐
+
+[ JS 라우터 구성하기 ]
+1) 라우터 템플릿 만들기
+let temp = {}
+2) 라우터 연결 옵션 세팅
+let routes = [{},{}];
+3) 라우터 옵션 연결하여 인스턴스 생성하기!
+const router = new VueRouter = ({routes});
+4) 뷰 인스턴스에 라우터를 사용할 수 있게 등록해줘야 함!!
+new Vue({
+    el: '#app',
+    router,
+})
+
+

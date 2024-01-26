@@ -63,8 +63,8 @@ Vue.component("side-comp", {
 makeVue(".nav ul");
 
 // 하단 구현 컴포넌트
-Vue.component("footer-comp",{
-  template:`
+Vue.component("footer-comp", {
+  template: `
   <div class="footer-info inbox">
     <!-- 고객센터 / 배송정보 -->
     <div class="info-top">
@@ -109,36 +109,57 @@ Vue.component("footer-comp",{
   `,
 }); // 하단 컴포넌트
 // 뷰 인스턴스 생성
-makeVue('#footer');
-
-const bannerMap = x =>{
-  return x.map(v=>`
-    <div>
-      <!-- 배너 이미지 전체박스 -->
-      <figure>
-        <img src=${v['isrc']} alt='배너이미지1'>
-      </figure>
-      <!-- 배너 이미지 설명 -->
-      <figcaption>
-        <ul class='inbox'>
-          <li class='tag'>${v['tag']}</li>
-          <li class='bold-tit'>${v['bold-tit']}</li>
-          <li class='light-tit'>${v['light-tit']}</li>
-          <li class='i-tit'>${v['i-tit']}</li>
-          <li class='detail'>${v['detail']}</li>
-          ${v['view-btn']!==""?'<button class="view-btn">'+v['view-btn']+'</button>':''}
-        </ul>
-      </figcaption>
-    </div>
-  `).join('');
-}; // bannerMap
-console.log(bannerMap(banData));
+makeVue("#footer");
 
 // 메인 배너 컴포넌트
-Vue.component('banner-comp',{
-  template: `<div class="banner-box">
-  ${bannerMap(banData)}
+Vue.component("banner-comp", {
+  template: `<div class='swiper mySwiper'>
+  <div class="banner-box swiper-wrapper">
+  <!-- 개별배너 -->
+  <div v-for="val in this.listData" class='swiper-slider'>
+    <!-- 배너 이미지 전체박스 -->
+    <figure>
+      <img v-bind:src="val['isrc']" alt='배너이미지1'>
+    </figure>
+    <!-- 배너 이미지 설명 -->
+    <figcaption>
+      <ul class='inbox'>
+        <li class='tag'>{{val["tag"]}}</li>
+        <li class='bold-tit'>{{val["bold-tit"]}}</li>
+        <li class='light-tit'>{{val["light-tit"]}}</li>
+        <li class='i-tit'>{{val["i-tit"]}}</li>
+        <li class='detail'>{{val["detail"]}}</li>
+        <button class="view-btn" v-if="val['view-btn']!== ''">{{val["view-btn"]}}</button>
+      </ul>
+    </figcaption>
+  </div>
+</div>
+<div class="swiper-pagination"></div>
   </div>`,
+  data(){
+    return{
+      listData : banData,
+    };
+  },
 });
+// 뷰 인스턴스 생성
+new Vue({
+  el: 'main',
+  mounted(){
+    
+    // swiper 인스턴스 생성
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        observer: true,
+        observeParents: true,
+      },
+    });
+  },
+});
+// makeVue("main");
+// 상품파트 타이틀 구성 컴포넌트
+Vue.component("part-tit-comp", {});
 
-makeVue('main');
