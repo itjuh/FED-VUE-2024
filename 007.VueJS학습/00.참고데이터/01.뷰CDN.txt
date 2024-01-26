@@ -1,8 +1,11 @@
 <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
-<!-- 뷰JS vuex CDN : 뷰JS보다 한단계 위 버전을 불러와야 함 -->
+<!-- 뷰JS vuex CDN : 뷰JS보다 한단계 위 버전을 불러와야 함: 스토어 --> 
 <script src="https://unpkg.com/vuex@3.0.0"></script>  
+
+<!-- 뷰JS 라우터 CDN -->
+<script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
 
 <!-- 제이쿼리 라이브러리 CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
