@@ -54,3 +54,11 @@ https://www.inflearn.com/pages/dc-vue3-202311
 템플릿 
 스크립트
 css 관리파일
+
+babel ES6버전을 해석하지 못하는 경우 변환해주는 것을 바벨이라함!!
+
+
+SPA 시작하기 
+인덱스 파일 건들지 말기!!!
+App.vue 열기
+
