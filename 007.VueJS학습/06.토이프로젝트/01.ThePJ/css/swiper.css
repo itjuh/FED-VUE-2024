@@ -9,6 +9,8 @@ swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* 이미지 찌그러짐 */
+    /* width: auto; */ 
 }
 /* 스와이퍼 이미지 */
 swiper-slide img {
