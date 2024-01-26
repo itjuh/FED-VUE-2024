@@ -85,3 +85,23 @@
     font-weight: 300;
     cursor: pointer;
 }
+
+/* 베스트 상품 */
+/* 상단 타이틀 */
+.part-title{
+    font-family: "Pretendard";
+    padding: 80px 0 40px;
+    margin: 0 auto;
+    text-align: center;
+}
+/* 굵은 타이틀 */
+.part-title li:first-child{
+    font-size: 3rem;
+    font-weight: 800;
+}
+/* 얇은 타이틀 */
+.part-title li:last-child{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: 400;
+}

@@ -144,15 +144,27 @@ Vue.component("banner-comp", {
 });
 // 뷰 인스턴스 생성
 makeVue("main");
+const titleData = {
+  '베스트 상품':'가장 사랑받는 추천제품!',
+  '더진한 레시피':'정말 쉽고 간편한 더진한 비밀 레시피!',
+}
 // 상품파트 타이틀 구성 컴포넌트
 Vue.component("part-tit-comp", {
   template:`
-  <div>
+  <div class='inbox'>
     <ul class='part-title'>
-      <li>베스트 상품</li>
-      <li>가장 사랑받는 추천제품!</li>
+      <li>{{tit1}}</li>
+      <li>{{tit2}}</li>
     </ul>
   </div>
   `,
+  props:['part-tit'],
+  data(){
+    return{
+      tit1:this.partTit,
+      tit2:titleData[this.partTit],
+    }
+  },
 });
-
+// 뷰 인스턴스 생성
+makeVue("main");
