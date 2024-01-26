@@ -68,3 +68,8 @@ footer {
     padding: 10px;
     text-decoration: none;
 }
+/* 선택라우터 밑줄, 굵게 */
+.router-link-active {
+    text-decoration: overline !important;
+    font-weight: bold;
+}

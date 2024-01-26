@@ -38,7 +38,7 @@ export const store = new Vuex.Store({
         // 초기 데이터 셋업 메서드
         initSet(헐,파라미터){
             // 전달변수는 파라미터에 담김
-            // console.log('데이터 변경 초기화!!',헐,파라미터);
+            console.log('데이터 변경 초기화!!',헐,파라미터);
             // 첫번째 전달값은 state객체가 담겨서 들어옴
 
             // 이미지 변수인 imgSrc 값 셋팅하기
@@ -50,7 +50,7 @@ export const store = new Vuex.Store({
     // 3) 비동기 처리 메서드 구역
     // -> 컴포넌트에서 호출 시 dispatch() 를 사용
     actions:{
-        MyAct(액션,액션파라){
+        myAct(액션,액션파라){
             console.log('나의액션!!',액션,액션파라);
         },
     },
