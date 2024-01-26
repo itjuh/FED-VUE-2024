@@ -40,3 +40,17 @@ new Vue({
 })
 
 
+---------------------------
+
+오후수업
+SPA 개발환경 구축하기!! CLI설치하기!!! Wep Pack중에 명령어로 설치함
+commend line interface
+
+버전이야기!!
+https://www.inflearn.com/pages/dc-vue3-202311
+
+
+뷰파일 - 컴포넌트형 관리파일
+템플릿 
+스크립트
+css 관리파일

@@ -8,14 +8,13 @@
 
 
 /* 배너 컴포넌트 */
-/* .banner-box{
-    width: 100vw;
+.banner-box{
+    overflow-x: hidden;
+    /* width: 100vw;
     height: 900px;
-    display: flex;
+    display: flex; */
 }
-.banner-box>div{
-    flex-shrink: 0;
-} */
+
 /* 배너 이미지 */
 /* .banner-box figure{
     height: 900px;

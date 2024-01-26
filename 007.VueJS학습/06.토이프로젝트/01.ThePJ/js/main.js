@@ -113,10 +113,10 @@ makeVue("#footer");
 
 // 메인 배너 컴포넌트
 Vue.component("banner-comp", {
-  template: `<div class='swiper mySwiper'>
-  <div class="banner-box swiper-wrapper">
+  template: `<div class='banner-box'>
+  <swiper-container class="mySwiper" slides-per-view="auto" loop="true" space-between="30" pagination="true" pagination-clickable="true">
   <!-- 개별배너 -->
-  <div v-for="val in this.listData" class='swiper-slider'>
+  <swiper-slide v-for="val in this.listData" class=''>
     <!-- 배너 이미지 전체박스 -->
     <figure>
       <img v-bind:src="val['isrc']" alt='배너이미지1'>
@@ -132,8 +132,8 @@ Vue.component("banner-comp", {
         <button class="view-btn" v-if="val['view-btn']!== ''">{{val["view-btn"]}}</button>
       </ul>
     </figcaption>
-  </div>
-</div>
+  </swiper-slide>
+</swiper-container>
 <div class="swiper-pagination"></div>
   </div>`,
   data(){
@@ -143,23 +143,16 @@ Vue.component("banner-comp", {
   },
 });
 // 뷰 인스턴스 생성
-new Vue({
-  el: 'main',
-  mounted(){
-    
-    // swiper 인스턴스 생성
-    var swiper = new Swiper(".mySwiper", {
-      spaceBetween: 30,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        observer: true,
-        observeParents: true,
-      },
-    });
-  },
-});
-// makeVue("main");
+makeVue("main");
 // 상품파트 타이틀 구성 컴포넌트
-Vue.component("part-tit-comp", {});
+Vue.component("part-tit-comp", {
+  template:`
+  <div>
+    <ul class='part-title'>
+      <li>베스트 상품</li>
+      <li>가장 사랑받는 추천제품!</li>
+    </ul>
+  </div>
+  `,
+});
 
