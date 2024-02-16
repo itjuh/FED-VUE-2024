@@ -6,9 +6,8 @@
 
 /****** 메인영역  */
 
-
 /* 배너 컴포넌트 */
-.banner-box{
+.banner-box {
     overflow-x: hidden;
     /* width: 100vw;
     height: 900px;
@@ -25,46 +24,45 @@
 } */
 
 /* 배너 설명 */
-.banner-box figcaption{
+.banner-box figcaption {
     position: absolute;
     top: 250px;
     width: 100%;
     padding-left: 20px;
 }
 /* 상단 태그 */
-.tag{
+.tag {
     font-size: 1.4em;
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     letter-spacing: 4px;
 }
 /* 가는 타이틀 */
-.light-tit{
+.light-tit {
     font-size: 5.8em;
-    font-family: 'GmarketSans';
+    font-family: "GmarketSans";
     font-weight: 300;
     font-style: normal;
 }
 /* 굵은 타이틀 */
-.bold-tit{
+.bold-tit {
     font-size: 5.8em;
-    font-family: 'GmarketSans';
+    font-family: "GmarketSans";
     font-weight: bold;
     margin-top: 30px;
     letter-spacing: -4px;
 }
 /* 이탤릭 설명 */
-.i-tit{
+.i-tit {
     font-size: 5.8em;
-    font-family: 'Roustel', sans-serif;
+    font-family: "Roustel", sans-serif;
     margin-top: -70px;
     color: coral;
 }
-.i-tit::after{
-    content: '';
+.i-tit::after {
+    content: "";
 }
 /* 디테일 설명 */
-.detail{
+.detail {
     font-family: "Pretendard";
     font-size: 1.5em;
     color: #555;
@@ -73,7 +71,7 @@
     font-weight: 300;
 }
 /* 링크 버튼 */
-.view-btn{
+.view-btn {
     display: block;
     font-family: "Pretendard";
     width: 200px;
@@ -89,60 +87,164 @@
 
 /* 베스트 상품 */
 /* 상단 타이틀 */
-.part-title{
+.part-title {
     font-family: "Pretendard";
     padding: 80px 0 40px;
     margin: 0 auto;
     text-align: center;
 }
 /* 굵은 타이틀 */
-.part-title li:first-child{
+.part-title li:first-child {
     font-size: 3rem;
     font-weight: 800;
 }
 /* 얇은 타이틀 */
-.part-title li:last-child{
+.part-title li:last-child {
     font-size: 1.5rem;
     margin-top: 1rem;
     font-weight: 400;
 }
-.prod-box ol{
+.prod-box ol {
     display: flex;
     gap: 2%;
 }
 /* 상품개별 */
-.prod-box li{
+.prod-box li {
     display: block;
     flex-basis: 32%;
     padding: 2rem;
-    transition: all .2s ease-in;
+    transition: all 0.2s ease-in;
     border: 1px solid #dedede;
     cursor: pointer;
     transform: translateY(0%);
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
 }
 /* 상품개별 마우스오버 */
-.prod-box li:hover{
+.prod-box li:hover {
     transform: translateY(-5%);
 }
-.prod-box img{
-    width: 310px;
+.prod-box img {
+    display: block;
+    margin: 0 auto;
+    max-width: 310px;
     aspect-ratio: 1/1;
 }
 /* 상품개별 타이틀 */
-.prod-box h4{
+.prod-box h4 {
     margin: 15px 0 10px 0;
     font-size: 1.7em;
     font-weight: 100;
     text-align: center;
-    word-spacing: .9;
+    word-spacing: 0.9;
 }
 /* 상품개별 정보 */
-.prod-box h5{
+.prod-box h5 {
     color: #999;
     line-height: 1.8em;
     font-size: 1.2em;
     font-weight: 400;
     text-align: center;
-    word-spacing: .9;
+    word-spacing: 0.9;
+}
+
+/* 레시피 */
+.beverage-group > ol {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+/* 레시피 이미지 */
+.beverage-group img {
+    display: block;
+    margin: 0 auto;
+    width: 234px;
+    aspect-ratio: 1/1;
+    padding: 3rem 0;
+}
+/* 레시피 분류 */
+.part-name {
+    display: block;
+    color: #333333;
+    text-align: center;
+    font-size: 1.4em;
+    font-family: Pretendard;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+/* 음료 이름 */
+.bev-name {
+    display: block;
+    font-family: Pretendard;
+    font-weight: 200;
+    text-align: center;
+    font-size: 1.7em;
+    letter-spacing: -1px;
+    margin: 0 0 40px;
+}
+/* 더보기 버튼 */
+.view-more-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #666;
+    font-family: Pretendard;
+    font-weight: 200;
+    letter-spacing: 2px;
+    font-size: 1.4em;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.view-more-btn:hover {
+    border: 1px solid #ffb900;
+    color: #ffb900;
+}
+/* etc박스 */
+.etc-box {
+    margin: 40px;
+}
+.etc-box > img {
+    display: block;
+    margin: 80px auto 20px;
+}
+.etc-box .part-title {
+    padding: 0 0 40px;
+}
+.etc-box ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+.etc-box img + img {
+    width: 491px;
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width: 1240px) {
+    /* 베스트상품 */
+    .prod-box ol {
+        flex-wrap: wrap;
+        padding: 0 20px;
+        gap: 20px 20px;
+    }
+}
+@media screen and (max-width: 800px) {
+    /* 베스트상품 이미지 */
+    .prod-box img {
+        width: 234px;
+    }
+    /* 상품개별 */
+    .prod-box li {
+        flex-basis: 90%;
+    }
+
+    /* 레시피 */
+    .beverage-group li {
+        flex-basis: 50%;
+    }
+    /* etc박스 */
+    .etc-box ol>img {
+        width: 100%;
+    }
 }

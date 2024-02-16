@@ -71,11 +71,25 @@
         <!-- 레시피 tit 200 cont 1200 424 button 151 56 -->
         <div class="recipe-box">
           <part-tit-comp part-tit="더진한 레시피"></part-tit-comp>
+          <div class="beverage-group">
+            <ol class="inbox">
+              <recipe-comp v-for="(n,i) in 4" v-bind:data-num="n"
+              v-bind:key="n"></recipe-comp>
+            </ol>
+            <button class="view-more-btn">VIEW MORE</button>
+          </div>
         </div>
         <!-- 홍보글 1050-->
         <div class="etc-box">
+          <img src="./images/theBase/028.png" alt="카페쇼로고" />
           <part-tit-comp part-tit="한국 카페쇼 주요 참여업체 선정!"></part-tit-comp>
-
+          <ol>
+            <promote-comp 
+              v-for="(k,i) in 4"
+              v-bind:data-seq="k"
+              v-bind:key="k">
+            </promote-comp>
+          </ol>
         </div>
       </div>
     </main>

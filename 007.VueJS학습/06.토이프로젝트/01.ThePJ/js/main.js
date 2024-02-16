@@ -206,5 +206,75 @@ Vue.component('prod-comp',{
   },
 });
 
+const recipeBeverageData = [
+  {
+    src:'./images/theBase/016.png',
+    part:'COFFEE',
+    name:'자몽 카푸치노',
+  },
+  {
+    src:'./images/theBase/017.png',
+    part:'ADE',
+    name:'레몬 체리 에이드',
+  },
+  {
+    src:'./images/theBase/018.png',
+    part:'COFFEE',
+    name:'레몬 사케라또',
+  },
+  {
+    src:'./images/theBase/019.png',
+    part:'COFFEE',
+    name:'레몬 아메리카노',
+  },
+];
+// 더 진한 레시피 컴포넌트 
+Vue.component('recipe-comp',{
+  template:`<li>
+    <img :src="src" alt='상품이미지' />
+    <span v-text="part" class='part-name'></span>
+    <span v-text="name" class='bev-name'></span>
+  </li>
+  `,
+  props: {"data-num": Number},
+  data: function(){
+    return{
+      src:`${this.bevList().src}`,
+      part:`${this.bevList().part}`,
+      name:`${this.bevList().name}`,
+    };
+  },
+  methods: {
+    bevList(){
+      return recipeBeverageData[this.dataNum - 1];
+    }
+  }
+});
+
+const cafeshowData = [
+  './images/theBase/029.png',
+  './images/theBase/030.png',
+  './images/theBase/031.png',
+  './images/theBase/032.png',
+]
+
+// 홍보문 컴포넌트
+Vue.component('promote-comp',{
+  template:`
+    <img :src="src" alt='카페쇼 이미지' />
+  `,
+  props: {'data-seq':Number},
+  data: function(){
+    return{
+      src:`${this.imgList()}`,
+    };
+  },
+  methods: {
+    imgList(){
+      console.log(this.dataSeq);
+      return cafeshowData[this.dataSeq - 1];
+    }
+  }
+})
 // 뷰 인스턴스 생성
 makeVue("main");
