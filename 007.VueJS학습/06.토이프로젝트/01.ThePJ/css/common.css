@@ -45,6 +45,9 @@ html {
 }
 /* 상단메뉴 */
 .nav {
+  position: fixed;
+  width: 100vw;
+  z-index: 999;
   height: 80px;
   background-color: #4b4036;
   color: #fff;
@@ -156,6 +159,7 @@ nav.on ol {
 }
 /***************** 메인 */
 #main{
+  padding-top: 80px;
   min-height: 600px;
   position: relative;
 }

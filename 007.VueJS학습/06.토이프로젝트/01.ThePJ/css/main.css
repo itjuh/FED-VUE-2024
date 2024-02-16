@@ -29,6 +29,7 @@
     position: absolute;
     top: 250px;
     width: 100%;
+    padding-left: 20px;
 }
 /* 상단 태그 */
 .tag{
@@ -104,4 +105,44 @@
     font-size: 1.5rem;
     margin-top: 1rem;
     font-weight: 400;
+}
+.prod-box ol{
+    display: flex;
+    gap: 2%;
+}
+/* 상품개별 */
+.prod-box li{
+    display: block;
+    flex-basis: 32%;
+    padding: 2rem;
+    transition: all .2s ease-in;
+    border: 1px solid #dedede;
+    cursor: pointer;
+    transform: translateY(0%);
+    transition: all .3s ease-in;
+}
+/* 상품개별 마우스오버 */
+.prod-box li:hover{
+    transform: translateY(-5%);
+}
+.prod-box img{
+    width: 310px;
+    aspect-ratio: 1/1;
+}
+/* 상품개별 타이틀 */
+.prod-box h4{
+    margin: 15px 0 10px 0;
+    font-size: 1.7em;
+    font-weight: 100;
+    text-align: center;
+    word-spacing: .9;
+}
+/* 상품개별 정보 */
+.prod-box h5{
+    color: #999;
+    line-height: 1.8em;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-align: center;
+    word-spacing: .9;
 }

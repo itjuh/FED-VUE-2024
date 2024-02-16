@@ -142,11 +142,11 @@ Vue.component("banner-comp", {
     };
   },
 });
-// 뷰 인스턴스 생성
-makeVue("main");
+
 const titleData = {
   '베스트 상품':'가장 사랑받는 추천제품!',
   '더진한 레시피':'정말 쉽고 간편한 더진한 비밀 레시피!',
+  '한국 카페쇼 주요 참여업체 선정!':'35개국 672개사 3,533여개 브랜드 참여하는 글로벌 전시회'
 }
 // 상품파트 타이틀 구성 컴포넌트
 Vue.component("part-tit-comp", {
@@ -166,5 +166,45 @@ Vue.component("part-tit-comp", {
     }
   },
 });
+
+const bestItemData = {
+  '허니자몽블랙티':{
+    src:'./images/prod/010.png',
+    tit:'허니자몽블랙티 고농축 베이스',
+    sub:'달콤~ 쌉싸름! 기분 좋아지는 깊은 풍미!',
+    sub2:'29,500원',
+  },
+  '패션후르츠':{
+    src:'./images/prod/012.png',
+    tit:'패션후르츠 고농축 베이스',
+    sub:'동남아의 맛!까만 씨앗이 톡톡!',
+    sub2:'29,500원',
+  },
+  '오미자':{
+    src:'./images/prod/013.png',
+    tit:'오미자 고농축 베이스',
+    sub:'다섯가지 얼굴을 가진신비한 맛!',
+    sub2:'29,500원',
+  },
+};
+// 베스트 상품 컴포넌트
+Vue.component('prod-comp',{
+  template:`<li>
+        <img :src="src" alt='상품이미지' />
+        <h4>{{tit}}</h4>
+        <h5>{{sub}}</h5>
+        <h5>{{sub2}}</h5>
+      </li>`,
+  props:['prod-name'],
+  data(){
+    return{
+      src:bestItemData[this.prodName].src,
+      tit:bestItemData[this.prodName].tit,
+      sub:bestItemData[this.prodName].sub,
+      sub2:bestItemData[this.prodName].sub2,
+    }
+  },
+});
+
 // 뷰 인스턴스 생성
 makeVue("main");
